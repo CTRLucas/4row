@@ -21,8 +21,7 @@ function generateAuthToken(user) {
   return jwt.sign(user, config.get("myprivatekey"));
 }
 
-router.post("/signin", (req, res, err) => {
-  console.log("signing in");
+router.post("/login", (req, res, err) => {
   const { username, password } = req.body;
   db.get(
     "select password from users where username = ?",
